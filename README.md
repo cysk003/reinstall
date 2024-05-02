@@ -75,6 +75,7 @@ bash reinstall.sh centos   7|8|9  (8|9 为 stream 版本)
                   opensuse 15.5|tumbleweed
                   ubuntu   20.04|22.04|24.04
                   alpine   3.16|3.17|3.18|3.19
+                  kali
                   arch
                   gentoo
 ```
@@ -111,21 +112,20 @@ bash reinstall.sh netboot.xyz
 ### 功能 5: 安装 Windows ISO
 
 - 注意参数两边的引号
-
-```bash
-bash reinstall.sh windows \
-     --image-name 'Windows 10 Enterprise LTSC 2021' \
-     --iso 'https://drive.massgrave.dev/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso'
-```
-
-- 现在脚本支持自动查找 Windows (含 LTSC) 和 Windows Server iso 链接
-- 需设置语言 `--lang`，默认 `en-us`
-- 查找源：<https://massgrave.dev/genuine-installation-media.html>
+- 支持自动查找部分 iso 链接，需设置语言 `--lang`，默认 `en-us`
 
 ```bash
 bash reinstall.sh windows \
      --image-name 'Windows 10 Enterprise LTSC 2021' \
      --lang zh-cn
+```
+
+- 也可以指定 iso 链接
+
+```bash
+bash reinstall.sh windows \
+     --image-name 'Windows 10 Enterprise LTSC 2021' \
+     --iso 'https://drive.massgrave.dev/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso'
 ```
 
 ![Installing Windows](https://github.com/bin456789/reinstall/assets/7548515/07c1aea2-1ce3-4967-904f-aaf9d6eec3f7)
@@ -187,7 +187,7 @@ Windows Server 2022 SERVERDATACENTER
 | Fedora                              | -        | 512M   |
 | openSUSE                            | -        | 512M   |
 | Ubuntu                              | -        | 512M   |
-| Debian                              | 256M     | -      |
+| Debian / Kali                       | 256M     | -      |
 | Alpine                              | 256M     | -      |
 | Arch                                | 512M     | -      |
 | Gentoo                              | 512M     | -      |

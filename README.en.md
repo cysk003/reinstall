@@ -75,6 +75,7 @@ bash reinstall.sh centos   7|8|9  (8|9 for the stream version)
                   opensuse 15.5|tumbleweed
                   ubuntu   20.04|22.04|24.04
                   alpine   3.16|3.17|3.18|3.19
+                  kali
                   arch
                   gentoo
 ```
@@ -111,21 +112,20 @@ bash reinstall.sh netboot.xyz
 ### Feature 5: Install Windows ISO
 
 - Pay attention to the quotation marks around the parameters
-
-```bash
-bash reinstall.sh windows \
-     --image-name 'Windows 10 Enterprise LTSC 2021' \
-     --iso 'https://drive.massgrave.dev/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso'
-```
-
-- Now supports automatically searching for Windows (including LTSC) and Windows Server ISO links.
-- Need to set the language using `--lang`, default `en-us`.
-- Search Source: <https://massgrave.dev/genuine-installation-media.html>
+- Supports automatically searching for some ISO links. Need to set the language using `--lang`, default is `en-us`.
 
 ```bash
 bash reinstall.sh windows \
      --image-name 'Windows 10 Enterprise LTSC 2021' \
      --lang zh-cn
+```
+
+- You can also specify an ISO link.
+
+```bash
+bash reinstall.sh windows \
+     --image-name 'Windows 10 Enterprise LTSC 2021' \
+     --iso 'https://drive.massgrave.dev/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso'
 ```
 
 ![Installing Windows](https://github.com/bin456789/reinstall/assets/7548515/07c1aea2-1ce3-4967-904f-aaf9d6eec3f7)
@@ -187,7 +187,7 @@ Use `Dism++` File menu > Open Image File, select the iso to be installed to get 
 | Fedora                                | -                        | 512M        |
 | openSUSE                              | -                        | 512M        |
 | Ubuntu                                | -                        | 512M        |
-| Debian                                | 256M                     |             |
+| Debian / Kali                         | 256M                     |             |
 | Alpine                                | 256M                     | -           |
 | Arch                                  | 512M                     | -           |
 | Gentoo                                | 512M                     | -           |
